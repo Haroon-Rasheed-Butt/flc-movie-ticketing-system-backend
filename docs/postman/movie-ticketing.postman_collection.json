@@ -22,7 +22,31 @@
           "path": ["accounts"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Account Created",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Haroon\",\n  \"lastName\": \"Butt\",\n  \"username\": \"haroon\",\n  \"password\": \"password123\",\n  \"rememberMe\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/accounts",
+              "host": ["{{baseUrl}}"],
+              "path": ["accounts"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": \"Account created\",\n  \"data\": {\n    \"id\": 6,\n    \"firstName\": \"Haroon\",\n    \"lastName\": \"Butt\",\n    \"username\": \"haroon\",\n    \"rememberMe\": true\n  }\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Get Account",
@@ -34,7 +58,24 @@
           "path": ["accounts", "1"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Account Response",
+          "originalRequest": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/accounts/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["accounts", "1"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": null,\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"Haroon\",\n    \"lastName\": \"Butt\",\n    \"username\": \"haroon\",\n    \"rememberMe\": true\n  }\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Create Movie",
@@ -51,7 +92,29 @@
           "path": ["movies"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Movie Created",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Orbit Seven\",\n  \"genre\": \"Science Fiction\",\n  \"typeId\": 3,\n  \"accountId\": 1,\n  \"ticketPrice\": 21.00\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/movies",
+              "host": ["{{baseUrl}}"],
+              "path": ["movies"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": \"Movie saved\",\n  \"data\": {\n    \"id\": 3,\n    \"name\": \"Orbit Seven\",\n    \"description\": \"An astronaut crew reconnects with humanity.\",\n    \"publicationYear\": 2024,\n    \"director\": \"Imran Abbas\",\n    \"actor\": \"Sheheryar Munawar\",\n    \"genre\": \"Science Fiction\",\n    \"coverPhoto\": \"https://example.com/orbitseven.jpg\",\n    \"ticketPrice\": 21.00,\n    \"typeId\": 3,\n    \"typeName\": \"Science Fiction\",\n    \"ownerId\": 3,\n    \"ownerUsername\": \"ali\"\n  }\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "List Movies",
@@ -67,7 +130,28 @@
           ]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Movie List",
+          "originalRequest": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/movies?page=0&size=5",
+              "host": ["{{baseUrl}}"],
+              "path": ["movies"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "5" }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": null,\n  \"data\": {\n    \"content\": [\n      {\n        \"id\": 1,\n        \"name\": \"Storm Front\",\n        \"description\": \"A retired detective faces a supernatural storm.\",\n        \"publicationYear\": 2022,\n        \"director\": \"Bilal Ahmed\",\n        \"actor\": \"Fahad Mustafa\",\n        \"genre\": \"Action\",\n        \"coverPhoto\": \"https://example.com/stormfront.jpg\",\n        \"ticketPrice\": 18.00,\n        \"typeId\": 1,\n        \"typeName\": \"Action\",\n        \"ownerId\": 1,\n        \"ownerUsername\": \"haroon\"\n      }\n    ],\n    \"page\": 0,\n    \"size\": 5,\n    \"totalElements\": 5,\n    \"totalPages\": 1\n  }\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Update Movie",
@@ -84,7 +168,29 @@
           "path": ["movies", "3"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Movie Updated",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Orbit Seven - Director's Cut\",\n  \"typeId\": 3,\n  \"ticketPrice\": 25.50\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/movies/3",
+              "host": ["{{baseUrl}}"],
+              "path": ["movies", "3"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": \"Movie updated\",\n  \"data\": {\n    \"id\": 3,\n    \"name\": \"Orbit Seven - Director's Cut\",\n    \"description\": \"An astronaut crew reconnects with humanity.\",\n    \"publicationYear\": 2024,\n    \"director\": \"Imran Abbas\",\n    \"actor\": \"Sheheryar Munawar\",\n    \"genre\": \"Science Fiction\",\n    \"coverPhoto\": \"https://example.com/orbitseven.jpg\",\n    \"ticketPrice\": 25.50,\n    \"typeId\": 3,\n    \"typeName\": \"Science Fiction\",\n    \"ownerId\": 3,\n    \"ownerUsername\": \"ali\"\n  }\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Delete Movie",
@@ -96,7 +202,24 @@
           "path": ["movies", "5"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Movie Deleted",
+          "originalRequest": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/movies/5",
+              "host": ["{{baseUrl}}"],
+              "path": ["movies", "5"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": \"Movie deleted\",\n  \"data\": null\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Add Cart Item",
@@ -113,7 +236,29 @@
           "path": ["cart"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Cart Item Added",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": 1,\n  \"movieId\": 1,\n  \"quantity\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cart",
+              "host": ["{{baseUrl}}"],
+              "path": ["cart"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": \"Cart item added\",\n  \"data\": {\n    \"id\": 6,\n    \"quantity\": 2,\n    \"purchased\": false,\n    \"purchaseDate\": null,\n    \"movieId\": 1,\n    \"movieName\": \"Storm Front\",\n    \"ticketPrice\": 18.00\n  }\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Get Account Cart",
@@ -125,7 +270,24 @@
           "path": ["accounts", "1", "cart"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Cart Contents",
+          "originalRequest": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/accounts/1/cart",
+              "host": ["{{baseUrl}}"],
+              "path": ["accounts", "1", "cart"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": null,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"quantity\": 2,\n      \"purchased\": false,\n      \"purchaseDate\": null,\n      \"movieId\": 1,\n      \"movieName\": \"Storm Front\",\n      \"ticketPrice\": 18.00\n    }\n  ]\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Checkout",
@@ -142,7 +304,29 @@
           "path": ["checkout"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Checkout Completed",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/checkout",
+              "host": ["{{baseUrl}}"],
+              "path": ["checkout"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": \"Checkout completed\",\n  \"data\": {\n    \"totalAmount\": 54.00,\n    \"processedItems\": 2,\n    \"transactions\": [\n      {\n        \"id\": 6,\n        \"totalAmount\": 36.00,\n        \"transactionDate\": \"2025-11-20T12:00:00\",\n        \"status\": \"COMPLETED\",\n        \"movieId\": 1,\n        \"accountId\": 1\n      },\n      {\n        \"id\": 7,\n        \"totalAmount\": 18.00,\n        \"transactionDate\": \"2025-11-20T12:01:00\",\n        \"status\": \"COMPLETED\",\n        \"movieId\": 3,\n        \"accountId\": 1\n      }\n    ]\n  }\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Add Rating",
@@ -159,7 +343,29 @@
           "path": ["movies", "1", "ratings"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Rating Added",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": 1,\n  \"rating\": 5,\n  \"comment\": \"Loved the striking visuals\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/movies/1/ratings",
+              "host": ["{{baseUrl}}"],
+              "path": ["movies", "1", "ratings"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": \"Rating added\",\n  \"data\": {\n    \"id\": 6,\n    \"rating\": 5,\n    \"comment\": \"Loved the striking visuals\",\n    \"ratingDate\": \"2025-11-20T12:05:00\",\n    \"movieId\": 1,\n    \"accountId\": 1\n  }\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Get Ratings",
@@ -171,7 +377,24 @@
           "path": ["movies", "1", "ratings"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Ratings List",
+          "originalRequest": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/movies/1/ratings",
+              "host": ["{{baseUrl}}"],
+              "path": ["movies", "1", "ratings"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": null,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"rating\": 5,\n      \"comment\": \"Absolutely electrifying storytelling.\",\n      \"ratingDate\": \"2025-11-20T09:00:00\",\n      \"movieId\": 1,\n      \"accountId\": 1\n    }\n  ]\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     },
     {
       "name": "Get Transactions",
@@ -183,7 +406,24 @@
           "path": ["accounts", "1", "transactions"]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "200 Transactions",
+          "originalRequest": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/accounts/1/transactions",
+              "host": ["{{baseUrl}}"],
+              "path": ["accounts", "1", "transactions"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"status\": \"success\",\n  \"message\": null,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"totalAmount\": 36.00,\n      \"transactionDate\": \"2025-11-20T10:00:00\",\n      \"status\": \"COMPLETED\",\n      \"movieId\": 1,\n      \"accountId\": 1\n    }\n  ]\n}",
+          "header": [],
+          "cookie": []
+        }
+      ]
     }
   ]
 }
